@@ -12,6 +12,14 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    const CREATED_AT = 'created_date';
+    const UPDATED_AT = 'updated_date';
+    const DELETED_AT = 'deleted_date';
+
+    protected $table = 'users';
+
+    const ADMIN = 0;
+    const EDITER = 1;
     /**
      * The attributes that are mass assignable.
      *
@@ -21,6 +29,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role_id',
     ];
 
     /**
